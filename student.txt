@@ -1,0 +1,109 @@
+class Student{
+
+        constructor() {
+          
+            this.name=null;
+            this.marks=null;
+          
+        }
+          
+  }
+ var student1 = new Student()
+             student1.name = "Ann"
+             student1.marks = 87
+             
+             console.log(student1)
+
+
+
+
+           
+   //will output  [object Object] {
+                   marks: 87,
+                   name: "Ann"
+                   }
+
+or 
+
+class Student{
+  constructor(name,marks){
+    this.name=name;
+    this.marks=marks;
+  }
+}
+  var student1 = new Student("karanja",99);
+  console.log(student1.name,student1.marks)
+
+             //will print "karanja"
+                           99
+
+example2
+class Student{
+  
+  constructor(){
+    this.name=null;
+    this.age=null;
+    this.marks=null;
+    this.id=null;
+  }
+} 
+  var student1 = new Student()
+  student1.name = "Karanja"
+  student1.age = 19
+  student1.marks = 99
+  student1.id=984393098 
+  console.log(student1)
+  
+//will output
+ [object Object] {
+  age: 19,
+  id: 984393098,
+  marks: 99,
+  name: "Karanja"
+}
+
+example3
+class Fruits{
+  
+  constructor(){
+    this.name1=null;
+    this.name2=null;
+    this.name3=null;
+    this.name4=null;
+  }
+} 
+  var fruit1 = new Fruits()
+  fruit1.name1 = "Raspery"
+  fruit1.name2 = "apple"
+  fruit1.name3 = "mango"
+  fruit1.name4 = "peach"
+  console.log(fruit1)
+  
+//will output
+ [object Object] {
+  name1: "Raspery",
+  name2: "apple",
+  name3: "mango",
+  name4: "peach"
+}
+
+or
+
+class Fruits{
+  
+  constructor(name1,name2,name3,name4){
+    this.name1=name1;
+    this.name2=name2;
+    this.name3=name3;
+    this.name4=name4;
+  }
+} 
+  var fruit1 = new Fruits("rasperry","apple","mango","peach")
+
+  console.log(fruit1.name1,fruit1.name2,fruit1.name3,fruit1.name4)
+
+//will print
+"rasperry"
+"apple"
+"mango"
+"peach"

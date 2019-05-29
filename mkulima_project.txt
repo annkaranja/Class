@@ -1,0 +1,239 @@
+1.Mkulima Platform
+Mkulima is new Kenyan business-to-business (B2B) agro-startup focusing on connecting grocery vendors to rural farmers. This is through their online marketplace where farmers can trade vegetables and fruits with grocery vendors. To begin with, farmers have to register on the platform and login. Thereafter, they can upload their products with respective prices. On the other hand, grocery vendors can signup and login to the platform to place their bulk order requests. 
+
+Create a class Mkulima that will keep a list of farms, grocery vendors and products. A single farm record should contain id, farm name, farmer, phone number and address. A single grocery vendor record should contain id, store name and phone number. A product should have id, name and price fields. 
+
+Users of the system should be able to:
+1. addFarm - params: farmId, name, farmer, phone, address
+2. removeFarm - params: farmId
+3. updateFarm - params: farmId, name, farmer, phone, address
+4. getFarm - params: farmId - returns a farm object
+5. addVendor - params: vendorId, name, phone
+6. removeVendor - params: vendorId
+7. updateVendor - params: vendorId, name, phone
+8. getVendor - params: vendorId - returns a vendor object
+9. addProduct - params: productId, name, price
+10. removeProduct - params: productId
+11. updateProduct - params: productId, name, price
+12. getProduct - params: productId - returns a product object
+13. printProducts - No param, console logs a list of product items with their prices 
+14. calculateOrderCost - params: productId, quantity
+15. createOrder - params: productId, quantity, farmId, storeId
+
+
+class Mkulima {
+  
+  constructor() {
+    this.farms = [];
+    this.vendors = [];
+    this.products = [];
+    this.orders = [];
+  }
+  
+  addFarm(farmId,name,farmer,phone,address){
+   let farm = {
+    farmId:farmId,
+    name:name,
+    farmer:farmer,
+    phone:phone,
+    address:address
+  }
+  this.farms.push(farm)
+ }
+   getFarm(farmId){
+    for(var i=0; i < this.farms.length; i++){
+      let farm = this.farms[i];
+      if(farm.farmId === farmId){
+        return farm
+       }
+     }
+  }
+  removeFarm(farmId){
+    let farm = this.getFarm(farmId)
+    let index = this.farms.indexOf(farm);
+    this.farms.splice(index,1)
+    
+  }
+  updateFarm(farmId,name,farmer,phone,address){
+    let farm = {
+    farmId:farmId,
+    name:name,
+    farmer:farmer,
+    phone:phone,
+    address:address
+  }
+  this.farms.push(farm)
+  }
+ 
+ addVendor(vendorId,name,phone){
+  let farm = {
+   vendorId:vendorId,
+   name:name, 
+   phone:phone
+  }
+  this.farms.push(farm)
+  }
+   
+  getVendor(VendorId){
+    for(var i=0; i < this.vendors.length; i++){
+      let farm = this.vendors[i];
+      if(farm.vendorId === vendorId){
+        return farm
+       }
+    }
+  }  
+  removeVendor(vendorId){
+    let farm = this.getVendor(vendorId)
+    let index = this.vendors.indexOf(farm);
+    this.farms.splice(index,1)
+    
+}
+    updateVendor(vendorId,name,phone){
+    let farm = {
+    vendorId:vendorId,
+    name:name,
+    phone:phone
+  }
+  this.farms.push(farm)
+  } 
+
+ addProduct(productId,name,price){
+  let farm = {
+   productId:productId,
+   name:name, 
+   price:price
+  }
+  
+  this.farms.push(farm)
+  }
+  
+   getProduct(productId){
+    for(var i=0; i < this.products.length; i++){
+      let farm = this.farms[i];
+      if(farm.productId === productId){
+        return farm
+       }
+     }
+  }  
+      
+   removeProduct(productId){
+    let product = this.getProduct(productId)
+    let index = this.products.indexOf(product);
+    this.products.splice(index,1);
+  }
+  updateProduct(productId,name,price){
+    let farm = {
+     productId:productId,
+     name:name,
+     price:price
+  }
+  this.farms.push(farm)
+  }
+}
+
+
+var mkulima1 = new Mkulima();
+mkulima1.addFarm(10,"Prolandscape","Ann","056747483","Nakuru")
+mkulima1.addFarm(122,"Anwaka","Georges","0565543","Nairobi")
+ console.log(mkulima1.farms)
+
+mkulima1.removeFarm(1)
+ console.log(mkulima1.farms)
+var mkulima3 = new Mkulima();
+mkulima3.updateFarm(10,"Prolandscape","Ann","056747483","Nakuru");
+ console.log(mkulima3.farms)
+ 
+ 
+ 
+var mkulima2 = new Mkulima();
+mkulima2.addVendor(73892017,"potatoes",5000)
+mkulima2.addVendor(49598340,"rasperries",69000)
+console.log(mkulima2.farms)
+
+mkulima2.removeVendor(1)
+ console.log(mkulima2.farms)
+var mkulima4 = new Mkulima();
+mkulima4.updateVendor(73892017,"potatoes",5000);
+ console.log(mkulima4.farms)
+ 
+ 
+var mkulima7 = new Mkulima();
+mkulima7.addProduct(20,"apples",50000)
+mkulima7.addProduct(7,"peach",10000)
+
+mkulima7.removeProduct(1)
+ console.log(mkulima7.farms)
+ 
+var mkulima9 = new Mkulima();
+mkulima9.updateProduct(7,"peach",10000);
+ console.log(mkulima9.farms)
+
+
+
+
+//will print out 
+
+[[object Object] {
+  address: "Nakuru",
+  farmer: "Ann",
+  farmId: 10,
+  name: "Prolandscape",
+  phone: "056747483"
+}, [object Object] {
+  address: "Nairobi",
+  farmer: "Georges",
+  farmId: 122,
+  name: "Anwaka",
+  phone: "0565543"
+}]
+[[object Object] {
+  address: "Nakuru",
+  farmer: "Ann",
+  farmId: 10,
+  name: "Prolandscape",
+  phone: "056747483"
+}]
+[[object Object] {
+  address: "Nakuru",
+  farmer: "Ann",
+  farmId: 10,
+  name: "Prolandscape",
+  phone: "056747483"
+}]
+[[object Object] {
+  name: "potatoes",
+  phone: 5000,
+  vendorId: 73892017
+}, [object Object] {
+  name: "rasperries",
+  phone: 69000,
+  vendorId: 49598340
+}]
+[[object Object] {
+  name: "potatoes",
+  phone: 5000,
+  vendorId: 73892017
+}]
+[[object Object] {
+  name: "potatoes",
+  phone: 5000,
+  vendorId: 73892017
+}]
+[[object Object] {
+  name: "apples",
+  price: 50000,
+  productId: 20
+}, [object Object] {
+  name: "peach",
+  price: 10000,
+  productId: 7
+}]
+[[object Object] {
+  name: "peach",
+  price: 10000,
+  productId: 7
+}]
+
+
+
+//will print out
